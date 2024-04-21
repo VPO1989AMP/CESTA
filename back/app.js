@@ -1,7 +1,8 @@
 const express = require("express")
+const cors = require("cors")
 const db = require("./db.js")
-
 const app = express()
+app.use(cors())
 
 
 app.get("/ping",async(req,res)=>{
