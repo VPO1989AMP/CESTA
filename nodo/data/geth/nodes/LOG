@@ -18,3 +18,15 @@
 16:26:37.426207 db@open done T·46.992762ms
 16:26:42.024834 db@close closing
 16:26:42.028927 db@close done T·4.074556ms
+=============== Apr 21, 2024 (UTC) ===============
+11:02:24.461501 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:02:24.482608 version@stat F·[1] S·653B[653B] Sc·[0.25]
+11:02:24.483549 db@open opening
+11:02:24.486283 journal@recovery F·1
+11:02:24.487949 journal@recovery recovering @3
+11:02:24.505827 memdb@flush created L0@5 N·9 S·428B "loc..seq,v48":"n:\xf2..ail,v49"
+11:02:24.508968 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+11:02:24.550825 db@janitor F·4 G·0
+11:02:24.551246 db@open done T·67.387073ms
+11:02:31.752529 db@close closing
+11:02:31.765113 db@close done T·12.579823ms
