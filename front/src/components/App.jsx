@@ -1,28 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Cesta } from './Cesta'
-import { Productos } from './Productos'
-import { Home } from './Home'
-import { Producto } from './Producto'
+import React, { useState, createContext } from 'react';
+import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Cesta } from './Cesta';
+import { Productos } from './Productos';
+import { Home } from './Home';
+import { Producto } from './Producto';
 
 const queryClient = new QueryClient();
+export const Context = createContext(null); 
 
 export function App() {
-    return(
-    <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Home></Home>}>
-              <Route index element={<Productos></Productos>}></Route>
-              <Route path="*" element={<Productos></Productos>}></Route>
-              <Route path="productos" element = {<Productos></Productos>}></Route>
-              <Route path="productos/:id" element = {<Producto></Producto>}></Route>
-              <Route path="cesta" element = {<Cesta></Cesta>}></Route>
-          </Route>
-      </Routes>
-    </BrowserRouter>
-  </QueryClientProvider>
-)}
+    const [estado, setEstado] = useState({
+      cesta: []
+    });
 
+    return (
+        <Context.Provider value={[estado, setEstado]}>  
+            <QueryClientProvider client={queryClient}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home />}> 
+                            <Route index element={<Productos />} />
+                            <Route path="*" element={<Productos />} />
+                            <Route path="productos" element={<Productos />} />
+                            <Route path="productos/:id" element={<Producto />} />
+                            <Route path="cesta" element={<Cesta />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </QueryClientProvider>
+        </Context.Provider>
+    );
+}

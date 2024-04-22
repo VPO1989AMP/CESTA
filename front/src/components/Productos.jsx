@@ -10,7 +10,7 @@ export function Productos() {
 
     //return <h2>{JSON.stringify(data,null,2)}</h2>
     return (<div>
-        <table>
+        <table className='table'>
             <thead>
                 <tr>
                     <th>Nombre</th>
